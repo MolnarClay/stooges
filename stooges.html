@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="stoogeApp">
+<head>
+    <meta charset="utf-8">
+    <title>Yay, JavaScript!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
+
+    <script>
+
+        angular.module('stoogeApp', [])
+                .controller("StoogeController", function ($scope) {
+                    $scope.stooges = ['larry', 'moe', 'currly'];
+                    $scope.addStooge = function () {
+                        $scope.stooges.push($scope.stoogeName);
+                        $scope.stoogeName = "";
+                    };
+
+                });
+
+    </script>
+
+</head>
+<body ng-controller="StoogeController">
+<form ng-submit="addStooge()">
+    <input type="text" required name="name" ng-model="stoogeName">
+    <input type="submit" value="Stoogify!">
+</form>
+<ul id="stooges">
+    <li ng-repeat="stooge in stooges">{{stooge}}</li>
+</ul>
+{{myString}}
+</body>
+</html>
+<script>
+
+</script>
